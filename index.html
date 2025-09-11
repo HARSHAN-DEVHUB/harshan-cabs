@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Harshan Cabs - Your reliable and futuristic taxi service offering AI-powered rides, luxury vehicles, and eco-friendly transport across Southern India. Book your ride today!">
+        <meta name="keywords" content="taxi service, Harshan Cabs, AI-powered taxis, luxury rides, book a taxi, eco-friendly transportation, ride booking, comfort rides, taxi Coimbatore, airport transfers, corporate cabs, outstation cabs, city rides, taxi Tamil Nadu, taxi Kerala, luxury cars, reliable cabs">
+        <meta name="author" content="Harshan Cabs">
+        <meta name="robots" content="index, follow">
+        <link rel="icon" type="image/png" href="/assets/logo/HC.png" style="mix-blend-mode:screen;">
+    
+        <!-- Schema.org JSON-LD for Harshan Cabs -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TaxiService",
+            "name": "Harshan Cabs",
+            "url": "https://harshancabs.co.in",
+            "logo": "/assets/logo/Harshan Cabs (1).png",
+            "image": "[URL-to-Your-Image]",
+            "description": "Harshan Cabs offers premium, reliable taxi services across Southern India, specializing in comfort, eco-friendly rides, and AI-powered luxury experiences.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3G2A EB COLONY, PATCHAPALAYAM ROAD, KURUMBAPALAYAM.",
+                "addressLocality": "Coimbatore",
+                "addressRegion": "TN",
+                "postalCode": "641107",
+                "addressCountry": "IN"
+            },
+            "telephone": "+91 9842274790",
+            "areaServed": ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Karnataka"],
+            "priceRange": "$$",
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                    "opens": "06:00",
+                    "closes": "23:00"
+                }
+            ],
+            "sameAs": [
+                "https://www.facebook.com/harshancabs",
+                "https://www.instagram.com/harshancabs",
+                "https://twitter.com/harshancabs"
+            ],
+            "serviceType": ["Luxury Cabs", "Eco-friendly Rides", "AI-Powered Taxis", "Outstation Cabs", "Airport Transfers", "City Rides", "Corporate Services"],
+            "review": [
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "4.8",
+                        "bestRating": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Bala"
+                    },
+                    "reviewBody": "Excellent service! The ride was comfortable and the driver was very professional."
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Ukesh"
+                    },
+                    "reviewBody": "The best cab experience I've had in Tamil Nadu. Highly recommended!"
+                }
+            ]
+        }
+        </script>
+        
+        <!-- Open Graph Meta Tags for Social Sharing -->
+        <meta property="og:title" content="Harshan Cabs - The Future of Comfort and Mobility">
+        <meta property="og:description" content="Harshan Cabs offers premium taxi services with a focus on comfort and reliability. Serving Tamil Nadu, Kerala, Andhra Pradesh, and Karnataka, we provide luxury rides across Southern India. Book your ride now!">
+        <meta property="og:image" content="[URL-to-Your-Image]">
+        <meta property="og:url" content="https://harshancabs.co.in">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Harshan Cabs - Futuristic Taxi Service">
+        <meta name="twitter:description" content="Harshan Cabs offers premium taxi services with a focus on comfort and reliability. Serving Tamil Nadu, Kerala, Andhra Pradesh, and Karnataka, we provide luxury rides across Southern India. Book your ride now!">
+        <meta name="twitter:image" content="[URL-to-Your-Image]">
+        
+        <!-- Canonical Tag -->
+        <link rel="canonical" href="https://harshancabs.co.in">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
+    
+        <title>Harshan Cabs</title>
+        
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    
+<body>
+
+        <!-- Video Splash Screen -->
+        <div id="video-splash" style="position: fixed; width: 100%; height: 100%; z-index: 9999;">
+            <video autoplay muted playsinline onended="hideSplash()" style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="/assets/intro/Yellow and Black Minimalist Welcome To My Channel YouTube Intro Video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+
+
+<!-- Navigation Bar -->
+<header class="header">
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <img src="/assets/logo/Harshan Cabs (1).png" alt="Harshan Cabs Logo" />
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="#services" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+
+
+
+<!-- Hero Section with Book Button -->
+<section id="home" class="hero-section">
+    <div class="image-container">
+        <img src="/assets/gold-glitter-dust-particle-texture-background-illustration.jpg" alt="Gold Glitter Background" class="hero-image">
+    </div>
+    <div class="hero-content">
+        <h1>Welcome to <span>Harshan Cabs</span></h1>
+        <p>Your Comfort is Our Priority – Turning Vision into Reality, Just for You.</p>
+        <a href="/BOOKNOW.html" class="btn btn-primary">Book your Ride</a>
+    </div>
+</section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section"  style="border-top: 5px solid #ffcc00;">
+        <div class="about-background" ></div>
+        <div class="about-content"  style="border-top: 5px solid #ffd52b; border-bottom: 5px solid #ffd52b;">
+            <h2>About Our Vision</h2>
+            <p>At Harshan Cabs, we redefine urban transportation with smart, eco-friendly solutions. Our mission is to bring the future to your doorstep, offering a seamless, high-tech ride experience with premium services.</p>
+            <p>We believe that comfort should be at the heart of every journey. Our fleet of luxury vehicles is meticulously maintained to ensure a smooth ride, allowing you to relax and enjoy the journey. With spacious interiors, state-of-the-art amenities, and personalized service, we go above and beyond to provide a comfortable experience for all our passengers.</p>
+        </div>
+    </section>
+
+
+    
+
+<!-- Available Cars Section -->
+<section id="available-cars" class="cars-section"  style="border-top: 5px solid #ffcc00;">
+    <h2>Round trip Cars</h2>
+    <div class="cars-container">
+        <div class="car-card">
+            <img src="/assets/cars/Luxury Sedan.jpg" alt="Luxury Sedan" class="car-image">
+            <h3>Luxury Sedan</h3>
+            <p>Comfortable and stylish, perfect for city rides and business trips.</p>
+            <a href="/BOOKNOW.html" class="btn btn-primary book-now-btn">Book Now</a>
+        </div>
+
+        <div class="car-card">
+            <img src="/assets/cars/Spacious SUV.jpg" alt="SUV" class="car-image">
+            <h3>Spacious SUV</h3>
+            <p>Roomy and powerful, great for family trips and off-road adventures.</p>
+            <a href="/BOOKNOW.html" class="btn btn-primary book-now-btn">Book Now</a>
+        </div>
+
+        <div class="car-card">
+            <img src="/assets/cars/Eco-Friendly EV.jpg" alt="Sedan" class="car-image">
+            <h3> Sedan </h3>
+            <p>Comfortable and stylish, perfect for city rides and business trips</p>
+            <a href="#home" class="btn btn-primary">Book Now</a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Services Section -->
+    <section id="services" class="services-section"  style="border-top: 5px solid #ffcc00;">
+        <h2>Our Futuristic Services</h2>
+        <div class="services-container">
+            <div class="service-card" id="tamilnadu">
+                <img src="/assets/tamilnadu-temple.jpg" alt="Tamil Nadu" class="service-image">
+                <h3>Tamil Nadu</h3>
+                <p>Discover the vibrant culture and famous tourist spots.</p>
+                <a href="/tamilnadu.html" class="service-link">Explore</a>
+            </div>
+            <div class="service-card" id="kerala">
+                <img src="/assets/kerala-temple.jpg" alt="Kerala" class="service-image">
+                <h3>Kerala</h3>
+                <p>Experience the serene backwaters and lush landscapes.</p>
+                <a href="kerala.html" class="service-link">Explore</a>
+            </div>
+            <div class="service-card" id="kerala">
+                <img src="/assets/karnataka.jpg" alt="Kerala" class="service-image">
+                <h3>karnataka</h3>
+                <p>Experience the serene backwaters and lush landscapes.</p>
+                <a href="/karnataka.html" class="service-link">Explore</a>
+            </div>
+
+        </div>
+    </section>
+
+
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="contact-section"  style="border-top: 5px solid #ffcc00;">
+            <h2>CONTACT US</h2>
+            <p>For Booking your Dream trips With Your Family, Friends</p>
+            <div class="contact-container">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Head Office:</h3>
+                    <p>3G2A eb colony, Kurumbapalayam<br>Coimbatore-641107</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email:</h3>
+                    <p><a href="mailto:bookharshancabs@gmail.com">bookharshancabs@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call us:</h3>
+                    <p>+91 9842274790<br>+91 8270758851</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="customer-reviews" style="border-top: 5px solid #ffcc00;">
+            <h2>Customer Reviews</h2>
+            <div id="reviews-list">
+              <!-- Reviews will be displayed here -->
+            </div>
+        
+            <form id="review-form">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+        
+              <label for="rating">Rating:</label>
+              <div id="star-rating">
+                <!-- Stars for rating -->
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+              </div>
+              <input type="hidden" id="rating" name="rating" required>
+        
+              <label for="comment">Comment:</label>
+              <textarea id="comment" name="comment" required></textarea>
+        
+              <button type="submit">Submit Review</button>
+            </form>
+        </section>
+        
+    
+    
+        <footer style="background-color: #000000; color: #ffffff; padding: 60px 20px; text-align: center; border-top: 5px solid #ffcc00;">
+            <div class="footer-container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                
+                <!-- Company Info -->
+                <div class="footer-section" style="flex: 1 1 200px; margin: 20px;">
+                    <h4 style="color: #ffcc00; font-size: 24px; margin-bottom: 15px;">Harshan Cabs</h4>
+                    <p style="font-size: 16px; line-height: 1.8;">
+                        Revolutionizing mobility with reliable, safe, and timely taxi services. Your journey, our responsibility.
+                    </p>
+                </div>
+        
+                <!-- Quick Links -->
+                <div class="footer-section" style="flex: 1 1 200px; margin: 20px;">
+                    <h4 style="color: #ffcc00; font-size: 24px; margin-bottom: 15px;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="#services" style="color: #ffffff; text-decoration: none;">Our Services</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#booking" style="color: #ffffff; text-decoration: none;">Book a Ride</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#about" style="color: #ffffff; text-decoration: none;">About Us</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: #ffffff; text-decoration: none;">Contact Us</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Cab Details -->
+                <div class="footer-section" style="flex: 1 1 200px; margin: 20px;">
+                    <h4 style="color: #ffcc00; font-size: 24px; margin-bottom: 15px;">Cab Details</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="#sedan" style="color: #ffffff; text-decoration: none;">Sedan</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#suv" style="color: #ffffff; text-decoration: none;">SUV</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#luxury" style="color: #ffffff; text-decoration: none;">Luxury</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#minivan" style="color: #ffffff; text-decoration: none;">Mini Van</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Tourist Place Details -->
+                <div class="footer-section" style="flex: 1 1 200px; margin: 20px;">
+                    <h4 style="color: #ffcc00; font-size: 24px; margin-bottom: 15px;">Tourist Places</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="#hill-stations" style="color: #ffffff; text-decoration: none;">Hill Stations</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#beaches" style="color: #ffffff; text-decoration: none;">Beaches</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#historical" style="color: #ffffff; text-decoration: none;">Historical Sites</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#wildlife" style="color: #ffffff; text-decoration: none;">Wildlife Sanctuaries</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Social Media Links -->
+                <div class="footer-section" style="flex: 1 1 200px; margin: 20px;">
+                    <h4 style="color: #ffcc00; font-size: 24px; margin-bottom: 15px;">Follow Us</h4>
+                    <div class="social-icons" style="font-size: 24px;">
+                        <a href="https://facebook.com" style="color: #ffffff; margin: 0 10px; text-decoration: none;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" style="color: #ffffff; margin: 0 10px; text-decoration: none;"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" style="color: #ffffff; margin: 0 10px; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" style="color: #ffffff; margin: 0 10px; text-decoration: none;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="footer-bottom" style="margin-top: 40px; font-size: 14px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;">
+                <p>&copy; 2024 Harshan Cabs - The Future of Mobility. All Rights Reserved.</p>
+            </div>
+        </footer>
+        
+    
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+    <script type="module">
+        // Import Firebase SDK modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, getDocs, Timestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCZCfkVd2pST30L0B_LexlNaLx4RJFWBco",
+            authDomain: "harshan-cabs.firebaseapp.com",
+            projectId: "harshan-cabs",
+            storageBucket: "harshan-cabs.appspot.com",
+            messagingSenderId: "717237053036",
+            appId: "1:717237053036:web:b1bf264137897a16141a49",
+            measurementId: "G-CG72K160P4"
+        };
+    
+        // Initialize Firebase and Firestore
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+    
+        // Function to submit a new review to Firestore
+        async function submitReview(name, rating, comment) {
+            try {
+                const docRef = await addDoc(collection(db, "reviews"), {
+                    name: name,
+                    rating: rating,
+                    comment: comment,
+                    date: Timestamp.fromDate(new Date()) // Store the current date and time
+                });
+                console.log("Review submitted with ID:", docRef.id);
+            } catch (e) {
+                console.error("Error adding review:", e);
+            }
+        }
+    
+        // Function to load and display reviews from Firestore
+        async function loadReviews() {
+            const reviewsList = document.getElementById('reviews-list');
+            reviewsList.innerHTML = ''; // Clear previous reviews
+    
+            const querySnapshot = await getDocs(collection(db, "reviews"));
+            querySnapshot.forEach((doc) => {
+                const review = doc.data();
+                const reviewDiv = document.createElement('div');
+                reviewDiv.classList.add('review');
+                reviewDiv.innerHTML = `
+                    <p><strong>${review.name}</strong> - Rating: ${'★'.repeat(review.rating)}</p>
+                    <p>${review.comment}</p>
+                    <p><small>${review.date.toDate().toDateString()}</small></p>
+                `;
+                reviewsList.appendChild(reviewDiv);
+            });
+        }
+    
+        // Event listener for star rating and form submission
+        document.addEventListener("DOMContentLoaded", function () {
+            const stars = document.querySelectorAll("#star-rating .star");
+            const ratingInput = document.getElementById("rating");
+    
+            // Handle star click to set rating
+            stars.forEach(star => {
+                star.addEventListener("click", () => {
+                    const ratingValue = star.getAttribute("data-value");
+                    ratingInput.value = ratingValue;
+    
+                    // Highlight selected stars
+                    stars.forEach(s => s.classList.remove("selected"));
+                    star.classList.add("selected");
+    
+                    for (let i = 0; i < ratingValue; i++) {
+                        stars[i].classList.add("selected");
+                    }
+                });
+            });
+    
+            // Form submission handler
+            document.getElementById('review-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+    
+                const name = document.getElementById('name').value;
+                const rating = parseInt(ratingInput.value, 10);
+                const comment = document.getElementById('comment').value;
+    
+                // Submit review to Firestore
+                await submitReview(name, rating, comment);
+    
+                // Clear form and reset star selection
+                document.getElementById('review-form').reset();
+                stars.forEach(s => s.classList.remove("selected"));
+                ratingInput.value = '';
+    
+                // Reload reviews to display the new review
+                loadReviews();
+            });
+    
+            // Load reviews on page load
+            loadReviews();
+        });
+
+
+    </script>
+    
+    
+</body>
+</html>

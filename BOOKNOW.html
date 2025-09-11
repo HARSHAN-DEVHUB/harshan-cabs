@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Harshan Cabs - Booking</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to your CSS file -->
+    <script src="/js/script.js" defer></script> <!-- Link to your JavaScript file -->
+    <style>
+        /* Add your CSS styles here or link to an external stylesheet */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e2022d0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            width: 100%;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            padding: 12px;
+            background: linear-gradient(135deg, #ffd700, #e0b000);
+            color: #333;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #e0c068, #d1a000);
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+        .back-home {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-home a {
+    text-decoration: none;
+    background: linear-gradient(135deg, #ffd700, #e0b000);
+    color: #333;
+    padding: 12px 24px; /* Increased padding for a larger button */
+    border-radius: 8px; /* Slightly more rounded corners */
+    font-size: 1.1em; /* Slightly larger font size */
+    font-weight: bold; /* Bold text for emphasis */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background 0.3s ease, transform 0.2s ease; /* Added transform transition */
+}
+
+.back-home a:hover {
+    background: linear-gradient(135deg, #e0c068, #d1a000);
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.back-home a:active {
+    transform: translateY(0); /* Reset lift effect when clicked */
+}
+
+/* Additional styles for the form elements */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    padding: 14px; /* Increased padding for better touch target */
+    border: 1px solid #ccc; /* Slightly darker border color */
+    border-radius: 8px; /* More rounded corners for inputs */
+    font-size: 1em;
+    background-color: #fafafa;
+    transition: all 0.3s ease, border-color 0.3s ease; /* Added border color transition */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    border-color: #ffd700; /* Highlight border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    padding: 14px; /* Increased padding for buttons */
+    background: linear-gradient(135deg, #ffd700, #e0b000);
+    border: none;
+    border-radius: 8px; /* More rounded corners for buttons */
+    cursor: pointer;
+    font-size: 1.1em; /* Slightly larger font size */
+    font-weight: bold; /* Bold text for emphasis */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background 0.3s ease, transform 0.2s ease; /* Added transform transition */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #e0c068, #d1a000);
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+button:active {
+    transform: translateY(0); /* Reset lift effect when clicked */
+}
+
+    </style>
+</head>
+<body>
+
+    <h1>Book Your Ride</h1>
+    <div class="modal-content">
+        <form action="https://formspree.io/f/xjkvyoqe" method="POST">
+            <label for="title">Title</label>
+            <select id="title" name="title" required>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+            </select>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required 
+                   pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                   placeholder="example@domain.com">
+            
+            <label for="confirmEmail">Confirm Email</label>
+            <input type="email" id="confirmEmail" name="confirmEmail" required 
+                   pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                   placeholder="Re-enter your email">
+            
+            <p id="emailError" class="error">Emails do not match.</p>
+            
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required pattern="^\d{10}$" placeholder="Enter 10-digit number">
+
+            <label for="countryCode">Country Code</label>
+            <select id="countryCode" name="countryCode" required>
+                <option value="+91">+91 (India)</option>
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+61">+61 (Australia)</option>
+                <!-- Add more options as needed -->
+            </select>
+            
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" name="destination" required placeholder="Ex: Kollam, Kerala">
+
+            <label for="carCategory">Car Category</label>
+            <select id="carCategory" name="carCategory" required>
+                <option value="Luxury Sedan">Luxury Sedan</option>
+                <option value="Spacious SUV">Spacious SUV</option>
+                <option value="Eco-Friendly EV">Eco-Friendly EV</option>
+            </select>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+    <div class="back-home">
+        <a href="/index.html">Back to Home</a> 
+    </div>
+
+    <script>
+            // Import Firebase SDK modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+    import { getFirestore, collection, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCZCfkVd2pST30L0B_LexlNaLx4RJFWBco",
+        authDomain: "harshan-cabs.firebaseapp.com",
+        projectId: "harshan-cabs",
+        storageBucket: "harshan-cabs.appspot.com",
+        messagingSenderId: "717237053036",
+        appId: "1:717237053036:web:b1bf264137897a16141a49",
+        measurementId: "G-CG72K160P4"
+    };
+
+    // Initialize Firebase and Firestore
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    // Function to submit a new booking to Firestore
+    async function submitBooking(data) {
+        try {
+            const docRef = await addDoc(collection(db, "bookings"), {
+                ...data,
+                createdAt: Timestamp.fromDate(new Date()) // Store the current date and time
+            });
+            console.log("Booking submitted with ID:", docRef.id);
+            alert("Booking confirmed!");
+        } catch (e) {
+            console.error("Error adding booking:", e);
+            alert("There was an error confirming your booking. Please try again.");
+        }
+    }
+
+    // Event listener for form submission
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("booking-form");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const title = document.getElementById("title").value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const countryCode = document.getElementById("countryCode").value;
+            const destination = document.getElementById("destination").value;
+            const carCategory = document.getElementById("carCategory").value;
+
+            // Create a booking object
+            const booking = {
+                title,
+                name,
+                email,
+                phone,
+                countryCode,
+                destination,
+                carCategory
+            };
+
+            // Submit booking to Firestore
+            submitBooking(booking);
+            form.reset(); // Reset the form after submission
+        });
+    });
+    </script>
+
+</body>
+</html>
