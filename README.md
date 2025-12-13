@@ -176,7 +176,69 @@ vercel
 - 📍 Address: 3G2A EB COLONY, PATCHAPALAYAM ROAD, KURUMBAPALAYAM, Coimbatore - 641107
 - 🕒 Open: 06:00 AM - 11:00 PM (Daily)
 
-## 📄 License
+## � Upcoming Features & Roadmap
+
+### High-Impact Features
+- [ ] **💰 Fare Calculator** - Real-time trip cost estimation before booking
+- [ ] **🎠 Image Carousel/Slider** - Dynamic showcase of fleet and destinations
+- [ ] **⭐ Customer Reviews Carousel** - Rotating testimonials with star ratings
+- [ ] **🗺️ Google Maps Integration** - Service area display and route planning
+- [ ] **📧 Email Notifications** - Auto-send booking confirmations via EmailJS
+- [ ] **💳 Payment Gateway** - Online payments (Razorpay/Stripe integration)
+- [ ] **📱 PWA Features** - Installable mobile app experience
+- [ ] **🌓 Dark/Light Theme Toggle** - User preference for color scheme
+- [ ] **❓ FAQ Section** - Accordion-style frequently asked questions
+- [ ] **📊 Live Tracking** - Real-time cab location tracking
+- [ ] **🎯 Multi-step Booking Wizard** - Enhanced UX for complex bookings
+- [ ] **🔔 Push Notifications** - Real-time booking status updates
+- [ ] **🎁 Promo Code System** - Discounts and special offers
+- [ ] **📸 Fleet Gallery** - Detailed car showcase with lightbox viewer
+- [ ] **🌐 Multi-language Support** - Tamil, Hindi, and English options
+
+### Quick Enhancements
+- [ ] Hero section image carousel
+- [ ] Advanced testimonials slider with autoplay
+- [ ] Newsletter subscription form
+- [ ] Social proof widgets (bookings counter, happy customers)
+- [ ] Live chat integration (Tawk.to)
+- [ ] Google Analytics tracking
+- [ ] Progressive image loading
+- [ ] Cookie consent banner
+- [ ] Breadcrumb navigation
+- [ ] Service area map
+
+### Backend Integration
+- [ ] Firebase real-time database
+- [ ] EmailJS for automated emails
+- [ ] Google Sheets as simple database
+- [ ] Admin dashboard for booking management
+- [ ] SMS notifications via Twilio
+- [ ] WhatsApp Business API integration
+- [ ] Driver assignment system
+- [ ] Ride history for customers
+
+### SEO & Performance
+- [ ] Server-side rendering (SSR)
+- [ ] Image optimization with lazy loading
+- [ ] Sitemap generation
+- [ ] Schema markup enhancements
+- [ ] Open Graph tags optimization
+- [ ] Performance monitoring
+- [ ] CDN integration
+
+### Security & Compliance
+- [ ] HTTPS enforcement
+- [ ] Rate limiting on forms
+- [ ] Input sanitization
+- [ ] GDPR compliance features
+- [ ] Privacy policy generator
+- [ ] Terms & conditions page
+
+---
+
+💡 **Want to contribute?** Feel free to pick any feature and submit a pull request!
+
+## �📄 License
 
 © 2025 Harshan Cabs. All rights reserved.
 
