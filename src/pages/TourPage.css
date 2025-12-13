@@ -1,0 +1,277 @@
+.tour-page {
+  padding-top: 70px;
+  background: #000;
+}
+
+.tour-hero {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tour-hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.tour-hero h1 {
+  font-size: 4rem;
+  color: #ffd700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.tour-hero p {
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.tour-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.tour-intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tour-intro h2 {
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.tour-intro p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.popular-destinations {
+  margin-bottom: 80px;
+}
+
+.popular-destinations h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 40px;
+}
+
+.destination-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.dest-card {
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #333;
+}
+
+.dest-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+  border-color: #ffd700;
+}
+
+.dest-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.dest-card:hover img {
+  transform: scale(1.1);
+}
+
+.dest-card h3 {
+  padding: 20px 20px 10px;
+  font-size: 1.5rem;
+  color: #ffd700;
+}
+
+.dest-card p {
+  padding: 0 20px 20px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.tour-packages {
+  margin-bottom: 80px;
+}
+
+.tour-packages h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 40px;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.package-card {
+  background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+  border-radius: 15px;
+  padding: 35px;
+  border: 2px solid #333;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.package-card:hover {
+  border-color: #ffd700;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.package-card h3 {
+  font-size: 1.8rem;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.duration {
+  color: #999;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.package-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+}
+
+.package-card ul li {
+  color: #e0e0e0;
+  padding: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.package-card ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.book-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ffd700, #e0b000);
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.book-btn:hover {
+  background: linear-gradient(135deg, #e0c068, #d1a000);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.cta-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #ffd700, #e0b000);
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #e0c068, #d1a000);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tour-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .tour-hero p {
+    font-size: 1.2rem;
+  }
+
+  .tour-intro h2,
+  .popular-destinations h2,
+  .tour-packages h2,
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .tour-intro p {
+    font-size: 1rem;
+  }
+
+  .destination-cards,
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-section {
+    padding: 40px 20px;
+  }
+}
