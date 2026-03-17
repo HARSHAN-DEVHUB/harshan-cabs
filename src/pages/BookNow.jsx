@@ -127,51 +127,87 @@ const BookNow = () => {
     { value: 'luxury', label: 'Luxury', icon: 'fa-car-burst', price: '₹25/km' },
     { value: 'mini', label: 'Mini', icon: 'fa-car', price: '₹10/km' }
   ];
+  const ridePromises = [
+    'Direct confirmation and prompt follow-up after booking.',
+    'Comfort-focused travel for airport, business, or family trips.',
+    'Transparent fares with easy local coordination.',
+    'Drivers familiar with intercity and sightseeing routes.'
+  ];
 
   return (
     <div className="book-now-page">
       <div className="book-now-container">
-        <h1><i className="fas fa-taxi"></i> Book Your Ride</h1>
-        
-        {submitted ? (
-          <div className="success-message">
-            <div className="success-icon">
-              <i className="fas fa-check-circle"></i>
-            </div>
-            <h2>Booking Successful!</h2>
-            <p>Thank you for choosing Harshan Cabs!</p>
-            <p className="success-detail">We'll contact you shortly at <strong>{formData.phone}</strong> to confirm your ride.</p>
-            <div className="booking-summary">
-              <h3>Booking Details:</h3>
-              <p><i className="fas fa-user"></i> {formData.name}</p>
-              <p><i className="fas fa-map-marker-alt"></i> {formData.pickupLocation} → {formData.dropLocation}</p>
-              <p><i className="fas fa-calendar"></i> {formData.date} at {formData.time}</p>
-              <p><i className="fas fa-car"></i> {formData.cabType.charAt(0).toUpperCase() + formData.cabType.slice(1)}</p>
-            </div>
-          </div>
-        ) : (
-          <>
-            <div className="cab-type-selector">
-              {cabTypes.map((cab) => (
-                <label
-                  key={cab.value}
-                  className={`cab-type-card ${formData.cabType === cab.value ? 'selected' : ''}`}
-                >
-                  <input
-                    type="radio"
-                    name="cabType"
-                    value={cab.value}
-                    checked={formData.cabType === cab.value}
-                    onChange={handleChange}
-                  />
-                  <i className={`fas ${cab.icon}`}></i>
-                  <h4>{cab.label}</h4>
-                  <span className="price">{cab.price}</span>
-                </label>
-              ))}
-            </div>
+        <div className="booking-hero">
+          <span className="booking-kicker">Reserve premium travel</span>
+          <h1><i className="fas fa-taxi"></i> Book Your Ride</h1>
+          <p>Tell us where you want to go and Harshan Cabs will coordinate a cleaner, calmer, more premium journey from the first call.</p>
+        </div>
 
-            <form onSubmit={handleSubmit} className="booking-form">
+        <div className="booking-layout">
+          <aside className="booking-aside">
+            <div className="booking-aside-card intro-card">
+              <span>Why guests prefer this service</span>
+              <h2>Travel planning that feels polished before the ride even begins.</h2>
+              <p>From airport pickups to outstation tours, the booking flow is built to keep things clear and quick.</p>
+            </div>
+            <div className="booking-aside-card promise-card">
+              <h3>Included in the experience</h3>
+              <ul>
+                {ridePromises.map((promise) => (
+                  <li key={promise}>{promise}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="booking-aside-card contact-card">
+              <h3>Need a custom route?</h3>
+              <p>Call <strong>+91 9842274790</strong> for temple circuits, family tours, and multi-stop intercity plans.</p>
+            </div>
+          </aside>
+
+          {submitted ? (
+            <div className="success-message">
+              <div className="success-icon">
+                <i className="fas fa-check-circle"></i>
+              </div>
+              <h2>Booking Successful!</h2>
+              <p>Thank you for choosing Harshan Cabs.</p>
+              <p className="success-detail">We will contact you shortly at <strong>{formData.phone}</strong> to confirm your ride.</p>
+              <div className="booking-summary">
+                <h3>Booking Details</h3>
+                <p><i className="fas fa-user"></i> {formData.name}</p>
+                <p><i className="fas fa-map-marker-alt"></i> {formData.pickupLocation} → {formData.dropLocation}</p>
+                <p><i className="fas fa-calendar"></i> {formData.date} at {formData.time}</p>
+                <p><i className="fas fa-car"></i> {formData.cabType.charAt(0).toUpperCase() + formData.cabType.slice(1)}</p>
+              </div>
+            </div>
+          ) : (
+            <div className="booking-panel">
+              <div className="panel-head">
+                <span>Select your ride</span>
+                <h2>Choose a cab type and share the journey details.</h2>
+              </div>
+
+              <div className="cab-type-selector">
+                {cabTypes.map((cab) => (
+                  <label
+                    key={cab.value}
+                    className={`cab-type-card ${formData.cabType === cab.value ? 'selected' : ''}`}
+                  >
+                    <input
+                      type="radio"
+                      name="cabType"
+                      value={cab.value}
+                      checked={formData.cabType === cab.value}
+                      onChange={handleChange}
+                    />
+                    <i className={`fas ${cab.icon}`}></i>
+                    <h4>{cab.label}</h4>
+                    <span className="price">{cab.price}</span>
+                  </label>
+                ))}
+              </div>
+
+              <form onSubmit={handleSubmit} className="booking-form">
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name">
@@ -334,9 +370,10 @@ const BookNow = () => {
                   </>
                 )}
               </button>
-            </form>
-          </>
-        )}
+              </form>
+            </div>
+          )}
+        </div>
 
         <div className="back-home">
           <Link to="/">

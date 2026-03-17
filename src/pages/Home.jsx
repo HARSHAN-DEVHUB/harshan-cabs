@@ -8,170 +8,260 @@ const Home = () => {
     kerala: '/assets/explore/kerala-cover.jpg',
     tamilNadu: '/assets/explore/tamilnadu-cover.jpg'
   };
+  const services = [
+    {
+      icon: 'fa-crown',
+      title: 'Executive Transfers',
+      description: 'Quiet cabins, punctual arrivals, and polished chauffeur-grade service for business and special occasions.'
+    },
+    {
+      icon: 'fa-plane-departure',
+      title: 'Airport Concierge',
+      description: 'Flight-aware pickups, luggage assistance, and smooth terminal transfers without the usual taxi friction.'
+    },
+    {
+      icon: 'fa-route',
+      title: 'Curated Road Trips',
+      description: 'Intercity and sightseeing journeys planned around comfort stops, scenic routes, and reliable timing.'
+    },
+    {
+      icon: 'fa-briefcase',
+      title: 'Corporate Mobility',
+      description: 'Dependable transport for teams, visiting clients, and recurring travel schedules across Southern India.'
+    }
+  ];
+  const promises = [
+    'On-time pickups with route planning that avoids delays.',
+    'Clean vehicles maintained for family, business, and long-distance rides.',
+    'Transparent pricing and direct support over call or WhatsApp.',
+    'Experienced local drivers who understand intercity travel well.'
+  ];
+  const testimonials = [
+    {
+      name: 'Bala',
+      route: 'Coimbatore to Mysore',
+      quote: 'The car arrived early, the cabin was spotless, and the entire ride felt closer to a private chauffeur service than a standard cab booking.'
+    },
+    {
+      name: 'Ukesh',
+      route: 'Airport transfer',
+      quote: 'What stood out was the calm experience. No last-minute confusion, no pricing surprises, and the driver handled the airport pickup perfectly.'
+    },
+    {
+      name: 'Priya',
+      route: 'Family temple tour',
+      quote: 'We used Harshan Cabs for a multi-stop family trip and the planning was excellent. It felt premium, safe, and genuinely well managed.'
+    }
+  ];
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
       <section className="hero">
-        <div className="hero-content">
-          <h1>Welcome to Harshan Cabs</h1>
-          <p className="subtitle">The Future of Comfort and Mobility</p>
-          <p className="description">
-            Experience premium taxi services with AI-powered rides, luxury vehicles, 
-            and eco-friendly transport across Southern India.
-          </p>
-          <div className="hero-buttons">
-            <Link to="/book-now" className="btn-primary">Book Your Ride</Link>
-            <a href="#services" className="btn-secondary">Explore Services</a>
+        <div className="hero-shell">
+          <div className="hero-copy">
+            <span className="hero-kicker">Premium taxi and tour service from Coimbatore</span>
+            <h1>Move across South India with the feel of a private travel lounge.</h1>
+            <p className="subtitle">Luxury-minded road travel for airport transfers, family journeys, temple circuits, and curated destination tours.</p>
+            <p className="description">
+              Harshan Cabs combines dependable scheduling, polished vehicles, and local route knowledge into a travel experience that feels composed from pickup to arrival.
+            </p>
+            <div className="hero-buttons">
+              <Link to="/book-now" className="btn-primary">Reserve Your Ride</Link>
+              <a href="#services" className="btn-secondary">View Signature Services</a>
+            </div>
+            <div className="hero-metrics">
+              <div>
+                <strong>24/7</strong>
+                <span>Ride availability</span>
+              </div>
+              <div>
+                <strong>3 States</strong>
+                <span>Tours and intercity travel</span>
+              </div>
+              <div>
+                <strong>Premium</strong>
+                <span>Comfort-first fleet experience</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="hero-image">
-          <img src={heroImage} alt="Luxury taxi for city travel" loading="eager" />
+          <div className="hero-visual-card">
+            <div className="hero-image-frame">
+              <img src={heroImage} alt="Luxury taxi for city travel" loading="eager" />
+            </div>
+            <div className="hero-floating-note primary-note">
+              <span>Signature Route</span>
+              <strong>Coimbatore to Munnar</strong>
+              <p>Hill transfer with comfort stops and scenic pacing.</p>
+            </div>
+            <div className="hero-floating-note secondary-note">
+              <span>Guest Promise</span>
+              <strong>Quiet, clean, punctual</strong>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      <section className="experience-strip">
+        <div className="experience-card">
+          <span>Airport</span>
+          <p>Professional pickup and drop coordination.</p>
+        </div>
+        <div className="experience-card">
+          <span>Corporate</span>
+          <p>Executive-ready transport for clients and teams.</p>
+        </div>
+        <div className="experience-card">
+          <span>Touring</span>
+          <p>Memorable regional travel with reliable timing.</p>
+        </div>
+        <div className="experience-card">
+          <span>Family Travel</span>
+          <p>Comfortable, safety-first rides for every generation.</p>
+        </div>
+      </section>
+
       <section id="services" className="services">
-        <h2>Our Services</h2>
+        <div className="section-heading">
+          <span>Signature Services</span>
+          <h2>Designed for travellers who care about calm, quality, and timing.</h2>
+          <p>Every ride category is shaped around reliability first, then elevated with details that make long and short journeys feel premium.</p>
+        </div>
         <div className="service-grid">
-          <div className="service-card">
-            <i className="fas fa-car"></i>
-            <h3>Luxury Cabs</h3>
-            <p>Premium vehicles for a comfortable journey</p>
-          </div>
-          <div className="service-card">
-            <i className="fas fa-leaf"></i>
-            <h3>Eco-Friendly Rides</h3>
-            <p>Green transportation for a sustainable future</p>
-          </div>
-          <div className="service-card">
-            <i className="fas fa-robot"></i>
-            <h3>AI-Powered</h3>
-            <p>Smart routing and efficient travel solutions</p>
-          </div>
-          <div className="service-card">
-            <i className="fas fa-plane"></i>
-            <h3>Airport Transfers</h3>
-            <p>Reliable pickup and drop services</p>
-          </div>
-          <div className="service-card">
-            <i className="fas fa-briefcase"></i>
-            <h3>Corporate Services</h3>
-            <p>Professional transportation for businesses</p>
-          </div>
-          <div className="service-card">
-            <i className="fas fa-map-marked-alt"></i>
-            <h3>Outstation Cabs</h3>
-            <p>Long-distance travel made comfortable</p>
+          {services.map((service) => (
+            <article key={service.title} className="service-card">
+              <div className="service-icon-wrap">
+                <i className={`fas ${service.icon}`}></i>
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="service-aside">
+          <div className="service-aside-panel">
+            <span>Why frequent riders stay with us</span>
+            <h3>Travel that feels composed, not improvised.</h3>
+            <ul>
+              {promises.map((promise) => (
+                <li key={promise}>{promise}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Explore Destinations Section */}
       <section className="explore-destinations">
-        <h2>Explore Popular Destinations</h2>
+        <div className="section-heading centered">
+          <span>Curated Destinations</span>
+          <h2>Explore signature circuits across Karnataka, Kerala, and Tamil Nadu.</h2>
+        </div>
         <div className="destination-grid">
           <Link to="/karnataka" className="destination-card">
             <img src={destinations.karnataka} alt="Karnataka landscape" loading="lazy" />
             <div className="destination-overlay">
               <h3>Karnataka Tours</h3>
-              <p>Discover the beauty of Karnataka</p>
+              <p>Royal heritage, misty hills, temple trails, and coastal pauses.</p>
             </div>
           </Link>
           <Link to="/kerala" className="destination-card">
             <img src={destinations.kerala} alt="Kerala backwaters" loading="lazy" />
             <div className="destination-overlay">
               <h3>Kerala Tours</h3>
-              <p>Experience God's Own Country</p>
+              <p>Backwaters, tea country, wildlife corridors, and sea breeze routes.</p>
             </div>
           </Link>
           <Link to="/tamilnadu" className="destination-card">
             <img src={destinations.tamilNadu} alt="Tamil Nadu temple architecture" loading="lazy" />
             <div className="destination-overlay">
               <h3>Tamil Nadu Tours</h3>
-              <p>Explore the land of temples</p>
+              <p>Temple cities, colonial corners, sacred coastlines, and hill escapes.</p>
             </div>
           </Link>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       <section className="why-choose-us">
-        <h2>Why Choose Harshan Cabs?</h2>
+        <div className="why-copy">
+          <span className="section-tag">Travel Standard</span>
+          <h2>Less noise, better planning, stronger travel confidence.</h2>
+          <p>Harshan Cabs is built for guests who want dependable execution without sacrificing atmosphere. The result is a service that feels considered, warm, and well-paced.</p>
+        </div>
         <div className="features-grid">
           <div className="feature">
             <i className="fas fa-clock"></i>
-            <h3>24/7 Service</h3>
-            <p>Available round the clock for your convenience</p>
+            <h3>Punctual by design</h3>
+            <p>Pickup windows and route choices are planned to reduce unnecessary stress.</p>
           </div>
           <div className="feature">
             <i className="fas fa-shield-alt"></i>
-            <h3>Safe & Secure</h3>
-            <p>Your safety is our top priority</p>
+            <h3>Comfort with safety</h3>
+            <p>Clean interiors, responsible driving, and a ride experience suitable for families and professionals.</p>
           </div>
           <div className="feature">
-            <i className="fas fa-dollar-sign"></i>
-            <h3>Affordable Rates</h3>
-            <p>Competitive pricing without hidden charges</p>
+            <i className="fas fa-wallet"></i>
+            <h3>Clear pricing</h3>
+            <p>Fares stay transparent so the experience feels premium, not confusing.</p>
           </div>
           <div className="feature">
             <i className="fas fa-user-tie"></i>
-            <h3>Professional Drivers</h3>
-            <p>Experienced and courteous drivers</p>
+            <h3>Local expertise</h3>
+            <p>Drivers know the roads, timing, and destination rhythms that make regional travel smoother.</p>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="testimonials">
-        <h2>What Our Customers Say</h2>
+        <div className="section-heading centered">
+          <span>Guest Impressions</span>
+          <h2>What riders notice most is how easy everything feels.</h2>
+        </div>
         <div className="testimonial-grid">
-          <div className="testimonial-card">
-            <div className="stars">★★★★★</div>
-            <p>"Excellent service! The ride was comfortable and the driver was very professional."</p>
-            <h4>- Bala</h4>
-          </div>
-          <div className="testimonial-card">
-            <div className="stars">★★★★★</div>
-            <p>"The best cab experience I've had in Tamil Nadu. Highly recommended!"</p>
-            <h4>- Ukesh</h4>
-          </div>
-          <div className="testimonial-card">
-            <div className="stars">★★★★☆</div>
-            <p>"Great service and very reliable. Will definitely use again."</p>
-            <h4>- Priya</h4>
-          </div>
+          {testimonials.map((testimonial) => (
+            <article key={testimonial.name} className="testimonial-card">
+              <div className="stars">★★★★★</div>
+              <p>“{testimonial.quote}”</p>
+              <div className="testimonial-meta">
+                <h4>{testimonial.name}</h4>
+                <span>{testimonial.route}</span>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Contact Section */}
       <section className="contact-info">
-        <h2>Get in Touch</h2>
+        <div className="contact-lead">
+          <span>Plan Your Ride</span>
+          <h2>Book directly, ask about routes, or plan a longer premium tour.</h2>
+          <p>Reach out for airport transfers, intercity bookings, one-day travel, and custom temple or hill-station itineraries.</p>
+        </div>
         <div className="contact-details">
-          <div className="contact-item">
+          <div className="contact-item featured">
             <i className="fas fa-map-marker-alt"></i>
+            <h3>Base Location</h3>
             <p>3G2A EB COLONY, PATCHAPALAYAM ROAD<br />KURUMBAPALAYAM, Coimbatore - 641107</p>
           </div>
           <div className="contact-item">
             <i className="fas fa-phone"></i>
+            <h3>Call Us</h3>
             <p>+91 9842274790</p>
           </div>
           <div className="contact-item">
             <i className="fas fa-clock"></i>
+            <h3>Availability</h3>
             <p>Open: 06:00 AM - 11:00 PM (Daily)</p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <footer>
         <div className="footer-content">
           <div className="footer-section">
             <h3>Harshan Cabs</h3>
-            <p>Your reliable partner for comfortable and safe journeys across Southern India.</p>
+            <p>Premium road travel across Southern India, delivered with dependable timing and a more refined guest experience.</p>
           </div>
           <div className="footer-section">
-            <h3>Quick Links</h3>
+            <h3>Navigate</h3>
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/book-now">Book Now</Link></li>
@@ -181,7 +271,7 @@ const Home = () => {
             </ul>
           </div>
           <div className="footer-section">
-            <h3>Follow Us</h3>
+            <h3>Connect</h3>
             <div className="social-links">
               <a href="https://www.facebook.com/harshancabs" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-facebook"></i>
@@ -196,7 +286,7 @@ const Home = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2025 Harshan Cabs. All rights reserved.</p>
+          <p>&copy; 2025 Harshan Cabs. Crafted for comfortable travel.</p>
         </div>
       </footer>
     </div>
