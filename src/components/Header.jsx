@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
-
-  // Close menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
 
   // Handle scroll effect
   useEffect(() => {
@@ -23,26 +17,31 @@ const Header = () => {
   }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
     <header className={isScrolled ? 'scrolled' : ''}>
       <nav className="container">
         <div className="logo">
-          <Link to="/">
-            <img src="/assets/logo/HC.png" alt="Harshan Cabs Logo" />
+          <Link to="/" onClick={closeMenu}>
+            <i className="fas fa-taxi logo-icon" aria-hidden="true"></i>
             <span>Harshan Cabs</span>
           </Link>
         </div>
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/karnataka">Karnataka Tours</Link></li>
-          <li><Link to="/kerala">Kerala Tours</Link></li>
-          <li><Link to="/tamilnadu">Tamil Nadu Tours</Link></li>
-          <li><Link to="/book-now" className="cta-button">Book Now</Link></li>
+          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+          <li><Link to="/karnataka" onClick={closeMenu}>Karnataka Tours</Link></li>
+          <li><Link to="/kerala" onClick={closeMenu}>Kerala Tours</Link></li>
+          <li><Link to="/tamilnadu" onClick={closeMenu}>Tamil Nadu Tours</Link></li>
+          <li><Link to="/book-now" className="cta-button" onClick={closeMenu}>Book Now</Link></li>
         </ul>
-        <div 
+        <button
+          type="button"
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
@@ -50,9 +49,9 @@ const Header = () => {
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </nav>
-      {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+      {isMenuOpen && <div className="overlay" onClick={closeMenu}></div>}
     </header>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './BookNow.css';
 
@@ -18,6 +18,15 @@ const BookNow = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const resetTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        clearTimeout(resetTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,19 +87,17 @@ const BookNow = () => {
     const newErrors = validateForm();
     
     if (Object.keys(newErrors).length === 0) {
+      setErrors({});
       setIsSubmitting(true);
       
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Form is valid, submit the data
-      console.log('Form submitted:', formData);
-      
       setIsSubmitting(false);
       setSubmitted(true);
       
       // Reset form after 5 seconds
-      setTimeout(() => {
+      resetTimerRef.current = setTimeout(() => {
         setFormData({
           name: '',
           email: '',

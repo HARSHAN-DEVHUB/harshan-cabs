@@ -2,6 +2,13 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const heroImage = '/assets/home/hero-taxi.jpg';
+  const destinations = {
+    karnataka: '/assets/explore/karnataka-cover.jpg',
+    kerala: '/assets/explore/kerala-cover.jpg',
+    tamilNadu: '/assets/explore/tamilnadu-cover.jpg'
+  };
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -19,7 +26,7 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-image">
-          <img src="/assets/intro/car1.jpg" alt="Luxury Car" />
+          <img src={heroImage} alt="Luxury taxi for city travel" loading="eager" />
         </div>
       </section>
 
@@ -65,21 +72,21 @@ const Home = () => {
         <h2>Explore Popular Destinations</h2>
         <div className="destination-grid">
           <Link to="/karnataka" className="destination-card">
-            <img src="/assets/Explore/karnataka.jpg" alt="Karnataka" />
+            <img src={destinations.karnataka} alt="Karnataka landscape" loading="lazy" />
             <div className="destination-overlay">
               <h3>Karnataka Tours</h3>
               <p>Discover the beauty of Karnataka</p>
             </div>
           </Link>
           <Link to="/kerala" className="destination-card">
-            <img src="/assets/Explore/kerala.jpg" alt="Kerala" />
+            <img src={destinations.kerala} alt="Kerala backwaters" loading="lazy" />
             <div className="destination-overlay">
               <h3>Kerala Tours</h3>
               <p>Experience God's Own Country</p>
             </div>
           </Link>
           <Link to="/tamilnadu" className="destination-card">
-            <img src="/assets/Explore/tamilnadu.jpg" alt="Tamil Nadu" />
+            <img src={destinations.tamilNadu} alt="Tamil Nadu temple architecture" loading="lazy" />
             <div className="destination-overlay">
               <h3>Tamil Nadu Tours</h3>
               <p>Explore the land of temples</p>

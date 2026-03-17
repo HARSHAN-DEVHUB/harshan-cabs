@@ -2,9 +2,19 @@ import { Link } from 'react-router-dom';
 import './TourPage.css';
 
 const Karnataka = () => {
+  const heroImage = '/assets/karnataka/hero.jpg';
+  const destinationImages = {
+    mysore: '/assets/karnataka/mysore.jpg',
+    hampi: '/assets/karnataka/hampi.jpg',
+    coorg: '/assets/karnataka/coorg.jpg',
+    bangalore: '/assets/karnataka/bangalore.jpg',
+    gokarna: '/assets/karnataka/gokarna.jpg',
+    belur: '/assets/karnataka/belur-halebidu.jpg'
+  };
+
   return (
     <div className="tour-page">
-      <div className="tour-hero" style={{ backgroundImage: 'url(/assets/karnataka/mysore-palace.jpg)' }}>
+      <div className="tour-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="tour-hero-overlay">
           <h1>Explore Karnataka</h1>
           <p>Discover the rich heritage and natural beauty of Karnataka</p>
@@ -26,32 +36,32 @@ const Karnataka = () => {
           <h2>Popular Destinations</h2>
           <div className="destination-cards">
             <div className="dest-card">
-              <img src="/assets/karnataka/mysore.jpg" alt="Mysore" />
+              <img src={destinationImages.mysore} alt="Mysore Palace" loading="lazy" />
               <h3>Mysore</h3>
               <p>Visit the magnificent Mysore Palace and experience the royal heritage</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/karnataka/hampi.jpg" alt="Hampi" />
+              <img src={destinationImages.hampi} alt="Hampi ruins" loading="lazy" />
               <h3>Hampi</h3>
               <p>Explore the UNESCO World Heritage Site with ancient ruins and temples</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/karnataka/coorg.jpg" alt="Coorg" />
+              <img src={destinationImages.coorg} alt="Coorg hills and plantations" loading="lazy" />
               <h3>Coorg</h3>
               <p>Enjoy the coffee plantations and misty hills of Scotland of India</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/karnataka/bangalore.jpg" alt="Bangalore" />
+              <img src={destinationImages.bangalore} alt="Bangalore city skyline" loading="lazy" />
               <h3>Bangalore</h3>
               <p>Experience the vibrant IT capital with gardens and modern attractions</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/karnataka/gokarna.jpg" alt="Gokarna" />
+              <img src={destinationImages.gokarna} alt="Gokarna beach" loading="lazy" />
               <h3>Gokarna</h3>
               <p>Relax on pristine beaches and visit ancient temples</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/karnataka/belur.jpg" alt="Belur-Halebidu" />
+              <img src={destinationImages.belur} alt="Belur temple architecture" loading="lazy" />
               <h3>Belur & Halebidu</h3>
               <p>Marvel at the intricate Hoysala architecture</p>
             </div>
@@ -100,7 +110,7 @@ const Karnataka = () => {
         <section className="cta-section">
           <h2>Ready to Explore Karnataka?</h2>
           <p>Book your Karnataka tour with Harshan Cabs for a comfortable and memorable journey</p>
-          <Link to="/book-now" className="cta-button">Book Your Tour Now</Link>
+          <Link to="/book-now" className="tour-cta-button">Book Your Tour Now</Link>
         </section>
       </div>
     </div>

@@ -43,14 +43,14 @@ nav {
   transform: scale(1.05);
 }
 
-.logo img {
-  height: 50px;
-  mix-blend-mode: screen;
-  transition: height 0.3s ease;
+.logo-icon {
+  font-size: 1.8rem;
+  color: #ffd700;
+  transition: transform 0.3s ease;
 }
 
-header.scrolled .logo img {
-  height: 40px;
+header.scrolled .logo-icon {
+  transform: scale(0.9);
 }
 
 .nav-links {
@@ -112,6 +112,8 @@ header.scrolled .logo img {
   gap: 5px;
   z-index: 101;
   padding: 10px;
+  background: transparent;
+  border: none;
 }
 
 .hamburger span {

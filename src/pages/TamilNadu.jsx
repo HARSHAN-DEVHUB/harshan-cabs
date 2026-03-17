@@ -2,9 +2,19 @@ import { Link } from 'react-router-dom';
 import './TourPage.css';
 
 const TamilNadu = () => {
+  const heroImage = '/assets/tamilnadu/hero.jpg';
+  const destinationImages = {
+    madurai: '/assets/tamilnadu/madurai.jpg',
+    ooty: '/assets/tamilnadu/ooty.jpg',
+    rameswaram: '/assets/tamilnadu/rameswaram.jpg',
+    kodaikanal: '/assets/tamilnadu/kodaikanal.jpg',
+    mahabalipuram: '/assets/tamilnadu/mahabalipuram.jpg',
+    pondicherry: '/assets/tamilnadu/pondicherry.jpg'
+  };
+
   return (
     <div className="tour-page">
-      <div className="tour-hero" style={{ backgroundImage: 'url(/assets/Explore/tamilnadu.jpg)' }}>
+      <div className="tour-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="tour-hero-overlay">
           <h1>Explore Tamil Nadu</h1>
           <p>Discover the Land of Temples and Rich Cultural Heritage</p>
@@ -27,32 +37,32 @@ const TamilNadu = () => {
           <h2>Popular Destinations</h2>
           <div className="destination-cards">
             <div className="dest-card">
-              <img src="/assets/tamilnadu/madurai.jpg" alt="Madurai" />
+              <img src={destinationImages.madurai} alt="Madurai temple" loading="lazy" />
               <h3>Madurai</h3>
               <p>Visit the iconic Meenakshi Amman Temple and ancient city</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/tamilnadu/ooty.jpg" alt="Ooty" />
+              <img src={destinationImages.ooty} alt="Ooty hills" loading="lazy" />
               <h3>Ooty</h3>
               <p>Experience the Queen of Hill Stations with scenic beauty</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/tamilnadu/rameswaram.jpg" alt="Rameswaram" />
+              <img src={destinationImages.rameswaram} alt="Rameswaram coast" loading="lazy" />
               <h3>Rameswaram</h3>
               <p>Explore the sacred island and Ramanathaswamy Temple</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/tamilnadu/kodaikanal.jpg" alt="Kodaikanal" />
+              <img src={destinationImages.kodaikanal} alt="Kodaikanal lake" loading="lazy" />
               <h3>Kodaikanal</h3>
               <p>Enjoy the Princess of Hill Stations and beautiful lakes</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/tamilnadu/mahabalipuram.jpg" alt="Mahabalipuram" />
+              <img src={destinationImages.mahabalipuram} alt="Mahabalipuram shore temple" loading="lazy" />
               <h3>Mahabalipuram</h3>
               <p>Marvel at UNESCO World Heritage rock-cut temples</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/tamilnadu/pondicherry.jpg" alt="Pondicherry" />
+              <img src={destinationImages.pondicherry} alt="Pondicherry French quarter" loading="lazy" />
               <h3>Pondicherry</h3>
               <p>Experience French colonial charm and Auroville</p>
             </div>
@@ -101,7 +111,7 @@ const TamilNadu = () => {
         <section className="cta-section">
           <h2>Ready to Explore Tamil Nadu?</h2>
           <p>Book your Tamil Nadu tour with Harshan Cabs for a journey through history and culture</p>
-          <Link to="/book-now" className="cta-button">Book Your Tour Now</Link>
+          <Link to="/book-now" className="tour-cta-button">Book Your Tour Now</Link>
         </section>
       </div>
     </div>

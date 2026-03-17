@@ -2,9 +2,19 @@ import { Link } from 'react-router-dom';
 import './TourPage.css';
 
 const Kerala = () => {
+  const heroImage = '/assets/kerala/hero.jpg';
+  const destinationImages = {
+    alleppey: '/assets/kerala/alleppey.jpg',
+    munnar: '/assets/kerala/munnar.jpg',
+    kochi: '/assets/kerala/kochi.jpg',
+    thekkady: '/assets/kerala/thekkady.jpg',
+    kovalam: '/assets/kerala/kovalam.jpg',
+    wayanad: '/assets/kerala/wayanad.jpg'
+  };
+
   return (
     <div className="tour-page">
-      <div className="tour-hero" style={{ backgroundImage: 'url(/assets/kerala/backwaters.jpg)' }}>
+      <div className="tour-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="tour-hero-overlay">
           <h1>Explore Kerala</h1>
           <p>Discover God's Own Country - Where Nature Meets Serenity</p>
@@ -26,32 +36,32 @@ const Kerala = () => {
           <h2>Popular Destinations</h2>
           <div className="destination-cards">
             <div className="dest-card">
-              <img src="/assets/kerala/alleppey.jpg" alt="Alleppey" />
+              <img src={destinationImages.alleppey} alt="Alleppey backwaters" loading="lazy" />
               <h3>Alleppey</h3>
               <p>Experience the magical backwaters on a traditional houseboat</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/kerala/munnar.jpg" alt="Munnar" />
+              <img src={destinationImages.munnar} alt="Munnar tea gardens" loading="lazy" />
               <h3>Munnar</h3>
               <p>Explore sprawling tea plantations and misty mountains</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/kerala/kochi.jpg" alt="Kochi" />
+              <img src={destinationImages.kochi} alt="Kochi waterfront" loading="lazy" />
               <h3>Kochi</h3>
               <p>Discover the historic port city with colonial architecture</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/kerala/thekkady.jpg" alt="Thekkady" />
+              <img src={destinationImages.thekkady} alt="Thekkady forest trails" loading="lazy" />
               <h3>Thekkady</h3>
               <p>Witness wildlife and spice plantations in Periyar</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/kerala/kovalam.jpg" alt="Kovalam" />
+              <img src={destinationImages.kovalam} alt="Kovalam beach" loading="lazy" />
               <h3>Kovalam</h3>
               <p>Relax on pristine beaches and enjoy Ayurvedic treatments</p>
             </div>
             <div className="dest-card">
-              <img src="/assets/kerala/wayanad.jpg" alt="Wayanad" />
+              <img src={destinationImages.wayanad} alt="Wayanad hills and forests" loading="lazy" />
               <h3>Wayanad</h3>
               <p>Trek through lush forests and ancient caves</p>
             </div>
@@ -100,7 +110,7 @@ const Kerala = () => {
         <section className="cta-section">
           <h2>Ready to Experience God's Own Country?</h2>
           <p>Book your Kerala tour with Harshan Cabs for an unforgettable journey</p>
-          <Link to="/book-now" className="cta-button">Book Your Tour Now</Link>
+          <Link to="/book-now" className="tour-cta-button">Book Your Tour Now</Link>
         </section>
       </div>
     </div>
