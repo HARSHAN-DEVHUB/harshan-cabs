@@ -1,7 +1,30 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ScrollReveal from '../components/ScrollReveal';
 import './Home.css';
 
 const Home = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        setScrollY(window.scrollY);
+        ticking = false;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const heroImage = '/assets/home/hero-taxi.jpg';
   const destinations = {
     karnataka: '/assets/explore/karnataka-cover.jpg',
@@ -54,11 +77,14 @@ const Home = () => {
     }
   ];
 
+  const heroParallax = Math.min(scrollY * 0.12, 72);
+  const noteParallax = Math.min(scrollY * 0.08, 48);
+
   return (
     <div className="home-page">
       <section className="hero">
         <div className="hero-shell">
-          <div className="hero-copy">
+          <div className="hero-copy" style={{ transform: `translateY(${heroParallax * -0.08}px)` }}>
             <span className="hero-kicker">Premium taxi and tour service from Coimbatore</span>
             <h1>Move across South India with the feel of a private travel lounge.</h1>
             <p className="subtitle">Luxury-minded road travel for airport transfers, family journeys, temple circuits, and curated destination tours.</p>
@@ -70,30 +96,36 @@ const Home = () => {
               <a href="#services" className="btn-secondary">View Signature Services</a>
             </div>
             <div className="hero-metrics">
-              <div>
+              <ScrollReveal animation="fade-up" delay={60}>
+                <div>
                 <strong>24/7</strong>
                 <span>Ride availability</span>
-              </div>
-              <div>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal animation="fade-up" delay={140}>
+                <div>
                 <strong>3 States</strong>
                 <span>Tours and intercity travel</span>
-              </div>
-              <div>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal animation="fade-up" delay={220}>
+                <div>
                 <strong>Premium</strong>
                 <span>Comfort-first fleet experience</span>
-              </div>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
-          <div className="hero-visual-card">
-            <div className="hero-image-frame">
+          <div className="hero-visual-card" style={{ transform: `translateY(${heroParallax}px)` }}>
+            <div className="hero-image-frame" style={{ transform: `translateY(${heroParallax * -0.22}px)` }}>
               <img src={heroImage} alt="Luxury taxi for city travel" loading="eager" />
             </div>
-            <div className="hero-floating-note primary-note">
+            <div className="hero-floating-note primary-note" style={{ transform: `translateY(${noteParallax}px)` }}>
               <span>Signature Route</span>
               <strong>Coimbatore to Munnar</strong>
               <p>Hill transfer with comfort stops and scenic pacing.</p>
             </div>
-            <div className="hero-floating-note secondary-note">
+            <div className="hero-floating-note secondary-note" style={{ transform: `translateY(${noteParallax * -1}px)` }}>
               <span>Guest Promise</span>
               <strong>Quiet, clean, punctual</strong>
             </div>
@@ -121,20 +153,24 @@ const Home = () => {
       </section>
 
       <section id="services" className="services">
-        <div className="section-heading">
-          <span>Signature Services</span>
-          <h2>Designed for travellers who care about calm, quality, and timing.</h2>
-          <p>Every ride category is shaped around reliability first, then elevated with details that make long and short journeys feel premium.</p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="section-heading">
+            <span>Signature Services</span>
+            <h2>Designed for travellers who care about calm, quality, and timing.</h2>
+            <p>Every ride category is shaped around reliability first, then elevated with details that make long and short journeys feel premium.</p>
+          </div>
+        </ScrollReveal>
         <div className="service-grid">
-          {services.map((service) => (
-            <article key={service.title} className="service-card">
-              <div className="service-icon-wrap">
-                <i className={`fas ${service.icon}`}></i>
-              </div>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </article>
+          {services.map((service, index) => (
+            <ScrollReveal key={service.title} animation="fade-up" delay={index * 90}>
+              <article className="service-card">
+                <div className="service-icon-wrap">
+                  <i className={`fas ${service.icon}`}></i>
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
         <div className="service-aside">
@@ -151,106 +187,136 @@ const Home = () => {
       </section>
 
       <section className="explore-destinations">
-        <div className="section-heading centered">
-          <span>Curated Destinations</span>
-          <h2>Explore signature circuits across Karnataka, Kerala, and Tamil Nadu.</h2>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="section-heading centered">
+            <span>Curated Destinations</span>
+            <h2>Explore signature circuits across Karnataka, Kerala, and Tamil Nadu.</h2>
+          </div>
+        </ScrollReveal>
         <div className="destination-grid">
-          <Link to="/karnataka" className="destination-card">
-            <img src={destinations.karnataka} alt="Karnataka landscape" loading="lazy" />
-            <div className="destination-overlay">
-              <h3>Karnataka Tours</h3>
-              <p>Royal heritage, misty hills, temple trails, and coastal pauses.</p>
-            </div>
-          </Link>
-          <Link to="/kerala" className="destination-card">
-            <img src={destinations.kerala} alt="Kerala backwaters" loading="lazy" />
-            <div className="destination-overlay">
-              <h3>Kerala Tours</h3>
-              <p>Backwaters, tea country, wildlife corridors, and sea breeze routes.</p>
-            </div>
-          </Link>
-          <Link to="/tamilnadu" className="destination-card">
-            <img src={destinations.tamilNadu} alt="Tamil Nadu temple architecture" loading="lazy" />
-            <div className="destination-overlay">
-              <h3>Tamil Nadu Tours</h3>
-              <p>Temple cities, colonial corners, sacred coastlines, and hill escapes.</p>
-            </div>
-          </Link>
+          <ScrollReveal animation="fade-up" delay={40}>
+            <Link to="/karnataka" className="destination-card">
+              <img src={destinations.karnataka} alt="Karnataka landscape" loading="lazy" />
+              <div className="destination-overlay">
+                <h3>Karnataka Tours</h3>
+                <p>Royal heritage, misty hills, temple trails, and coastal pauses.</p>
+              </div>
+            </Link>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={120}>
+            <Link to="/kerala" className="destination-card">
+              <img src={destinations.kerala} alt="Kerala backwaters" loading="lazy" />
+              <div className="destination-overlay">
+                <h3>Kerala Tours</h3>
+                <p>Backwaters, tea country, wildlife corridors, and sea breeze routes.</p>
+              </div>
+            </Link>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={200}>
+            <Link to="/tamilnadu" className="destination-card">
+              <img src={destinations.tamilNadu} alt="Tamil Nadu temple architecture" loading="lazy" />
+              <div className="destination-overlay">
+                <h3>Tamil Nadu Tours</h3>
+                <p>Temple cities, colonial corners, sacred coastlines, and hill escapes.</p>
+              </div>
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="why-choose-us">
-        <div className="why-copy">
-          <span className="section-tag">Travel Standard</span>
-          <h2>Less noise, better planning, stronger travel confidence.</h2>
-          <p>Harshan Cabs is built for guests who want dependable execution without sacrificing atmosphere. The result is a service that feels considered, warm, and well-paced.</p>
-        </div>
+        <ScrollReveal animation="fade-right">
+          <div className="why-copy">
+            <span className="section-tag">Travel Standard</span>
+            <h2>Less noise, better planning, stronger travel confidence.</h2>
+            <p>Harshan Cabs is built for guests who want dependable execution without sacrificing atmosphere. The result is a service that feels considered, warm, and well-paced.</p>
+          </div>
+        </ScrollReveal>
         <div className="features-grid">
-          <div className="feature">
-            <i className="fas fa-clock"></i>
-            <h3>Punctual by design</h3>
-            <p>Pickup windows and route choices are planned to reduce unnecessary stress.</p>
-          </div>
-          <div className="feature">
-            <i className="fas fa-shield-alt"></i>
-            <h3>Comfort with safety</h3>
-            <p>Clean interiors, responsible driving, and a ride experience suitable for families and professionals.</p>
-          </div>
-          <div className="feature">
-            <i className="fas fa-wallet"></i>
-            <h3>Clear pricing</h3>
-            <p>Fares stay transparent so the experience feels premium, not confusing.</p>
-          </div>
-          <div className="feature">
-            <i className="fas fa-user-tie"></i>
-            <h3>Local expertise</h3>
-            <p>Drivers know the roads, timing, and destination rhythms that make regional travel smoother.</p>
-          </div>
+          <ScrollReveal animation="fade-up" delay={40}>
+            <div className="feature">
+              <i className="fas fa-clock"></i>
+              <h3>Punctual by design</h3>
+              <p>Pickup windows and route choices are planned to reduce unnecessary stress.</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={120}>
+            <div className="feature">
+              <i className="fas fa-shield-alt"></i>
+              <h3>Comfort with safety</h3>
+              <p>Clean interiors, responsible driving, and a ride experience suitable for families and professionals.</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={200}>
+            <div className="feature">
+              <i className="fas fa-wallet"></i>
+              <h3>Clear pricing</h3>
+              <p>Fares stay transparent so the experience feels premium, not confusing.</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={280}>
+            <div className="feature">
+              <i className="fas fa-user-tie"></i>
+              <h3>Local expertise</h3>
+              <p>Drivers know the roads, timing, and destination rhythms that make regional travel smoother.</p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="testimonials">
-        <div className="section-heading centered">
-          <span>Guest Impressions</span>
-          <h2>What riders notice most is how easy everything feels.</h2>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="section-heading centered">
+            <span>Guest Impressions</span>
+            <h2>What riders notice most is how easy everything feels.</h2>
+          </div>
+        </ScrollReveal>
         <div className="testimonial-grid">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.name} className="testimonial-card">
-              <div className="stars">★★★★★</div>
-              <p>“{testimonial.quote}”</p>
-              <div className="testimonial-meta">
-                <h4>{testimonial.name}</h4>
-                <span>{testimonial.route}</span>
-              </div>
-            </article>
+          {testimonials.map((testimonial, index) => (
+            <ScrollReveal key={testimonial.name} animation="fade-up" delay={index * 90}>
+              <article className="testimonial-card">
+                <div className="stars">★★★★★</div>
+                <p>“{testimonial.quote}”</p>
+                <div className="testimonial-meta">
+                  <h4>{testimonial.name}</h4>
+                  <span>{testimonial.route}</span>
+                </div>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </section>
 
       <section className="contact-info">
-        <div className="contact-lead">
-          <span>Plan Your Ride</span>
-          <h2>Book directly, ask about routes, or plan a longer premium tour.</h2>
-          <p>Reach out for airport transfers, intercity bookings, one-day travel, and custom temple or hill-station itineraries.</p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="contact-lead">
+            <span>Plan Your Ride</span>
+            <h2>Book directly, ask about routes, or plan a longer premium tour.</h2>
+            <p>Reach out for airport transfers, intercity bookings, one-day travel, and custom temple or hill-station itineraries.</p>
+          </div>
+        </ScrollReveal>
         <div className="contact-details">
-          <div className="contact-item featured">
-            <i className="fas fa-map-marker-alt"></i>
-            <h3>Base Location</h3>
-            <p>3G2A EB COLONY, PATCHAPALAYAM ROAD<br />KURUMBAPALAYAM, Coimbatore - 641107</p>
-          </div>
-          <div className="contact-item">
-            <i className="fas fa-phone"></i>
-            <h3>Call Us</h3>
-            <p>+91 9842274790</p>
-          </div>
-          <div className="contact-item">
-            <i className="fas fa-clock"></i>
-            <h3>Availability</h3>
-            <p>Open: 06:00 AM - 11:00 PM (Daily)</p>
-          </div>
+          <ScrollReveal animation="fade-up" delay={40}>
+            <div className="contact-item featured">
+              <i className="fas fa-map-marker-alt"></i>
+              <h3>Base Location</h3>
+              <p>3G2A EB COLONY, PATCHAPALAYAM ROAD<br />KURUMBAPALAYAM, Coimbatore - 641107</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={120}>
+            <div className="contact-item">
+              <i className="fas fa-phone"></i>
+              <h3>Call Us</h3>
+              <p>+91 9842274790</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={200}>
+            <div className="contact-item">
+              <i className="fas fa-clock"></i>
+              <h3>Availability</h3>
+              <p>Open: 06:00 AM - 11:00 PM (Daily)</p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

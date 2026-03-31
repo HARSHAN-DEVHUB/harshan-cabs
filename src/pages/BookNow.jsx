@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ScrollReveal from '../components/ScrollReveal';
 import './BookNow.css';
 
 const BookNow = () => {
@@ -137,75 +138,87 @@ const BookNow = () => {
   return (
     <div className="book-now-page">
       <div className="book-now-container">
-        <div className="booking-hero">
-          <span className="booking-kicker">Reserve premium travel</span>
-          <h1><i className="fas fa-taxi"></i> Book Your Ride</h1>
-          <p>Tell us where you want to go and Harshan Cabs will coordinate a cleaner, calmer, more premium journey from the first call.</p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="booking-hero">
+            <span className="booking-kicker">Reserve premium travel</span>
+            <h1><i className="fas fa-taxi"></i> Book Your Ride</h1>
+            <p>Tell us where you want to go and Harshan Cabs will coordinate a cleaner, calmer, more premium journey from the first call.</p>
+          </div>
+        </ScrollReveal>
 
         <div className="booking-layout">
           <aside className="booking-aside">
-            <div className="booking-aside-card intro-card">
-              <span>Why guests prefer this service</span>
-              <h2>Travel planning that feels polished before the ride even begins.</h2>
-              <p>From airport pickups to outstation tours, the booking flow is built to keep things clear and quick.</p>
-            </div>
-            <div className="booking-aside-card promise-card">
-              <h3>Included in the experience</h3>
-              <ul>
-                {ridePromises.map((promise) => (
-                  <li key={promise}>{promise}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="booking-aside-card contact-card">
-              <h3>Need a custom route?</h3>
-              <p>Call <strong>+91 9842274790</strong> for temple circuits, family tours, and multi-stop intercity plans.</p>
-            </div>
+            <ScrollReveal animation="fade-right" delay={40}>
+              <div className="booking-aside-card intro-card">
+                <span>Why guests prefer this service</span>
+                <h2>Travel planning that feels polished before the ride even begins.</h2>
+                <p>From airport pickups to outstation tours, the booking flow is built to keep things clear and quick.</p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal animation="fade-right" delay={120}>
+              <div className="booking-aside-card promise-card">
+                <h3>Included in the experience</h3>
+                <ul>
+                  {ridePromises.map((promise) => (
+                    <li key={promise}>{promise}</li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal animation="fade-right" delay={200}>
+              <div className="booking-aside-card contact-card">
+                <h3>Need a custom route?</h3>
+                <p>Call <strong>+91 9842274790</strong> for temple circuits, family tours, and multi-stop intercity plans.</p>
+              </div>
+            </ScrollReveal>
           </aside>
 
           {submitted ? (
-            <div className="success-message">
-              <div className="success-icon">
-                <i className="fas fa-check-circle"></i>
+            <ScrollReveal animation="fade-left">
+              <div className="success-message">
+                <div className="success-icon">
+                  <i className="fas fa-check-circle"></i>
+                </div>
+                <h2>Booking Successful!</h2>
+                <p>Thank you for choosing Harshan Cabs.</p>
+                <p className="success-detail">We will contact you shortly at <strong>{formData.phone}</strong> to confirm your ride.</p>
+                <div className="booking-summary">
+                  <h3>Booking Details</h3>
+                  <p><i className="fas fa-user"></i> {formData.name}</p>
+                  <p><i className="fas fa-map-marker-alt"></i> {formData.pickupLocation} → {formData.dropLocation}</p>
+                  <p><i className="fas fa-calendar"></i> {formData.date} at {formData.time}</p>
+                  <p><i className="fas fa-car"></i> {formData.cabType.charAt(0).toUpperCase() + formData.cabType.slice(1)}</p>
+                </div>
               </div>
-              <h2>Booking Successful!</h2>
-              <p>Thank you for choosing Harshan Cabs.</p>
-              <p className="success-detail">We will contact you shortly at <strong>{formData.phone}</strong> to confirm your ride.</p>
-              <div className="booking-summary">
-                <h3>Booking Details</h3>
-                <p><i className="fas fa-user"></i> {formData.name}</p>
-                <p><i className="fas fa-map-marker-alt"></i> {formData.pickupLocation} → {formData.dropLocation}</p>
-                <p><i className="fas fa-calendar"></i> {formData.date} at {formData.time}</p>
-                <p><i className="fas fa-car"></i> {formData.cabType.charAt(0).toUpperCase() + formData.cabType.slice(1)}</p>
-              </div>
-            </div>
+            </ScrollReveal>
           ) : (
-            <div className="booking-panel">
-              <div className="panel-head">
-                <span>Select your ride</span>
-                <h2>Choose a cab type and share the journey details.</h2>
-              </div>
+            <ScrollReveal animation="fade-left">
+              <div className="booking-panel">
+                <div className="panel-head">
+                  <span>Select your ride</span>
+                  <h2>Choose a cab type and share the journey details.</h2>
+                </div>
 
-              <div className="cab-type-selector">
-                {cabTypes.map((cab) => (
-                  <label
-                    key={cab.value}
-                    className={`cab-type-card ${formData.cabType === cab.value ? 'selected' : ''}`}
-                  >
-                    <input
-                      type="radio"
-                      name="cabType"
-                      value={cab.value}
-                      checked={formData.cabType === cab.value}
-                      onChange={handleChange}
-                    />
-                    <i className={`fas ${cab.icon}`}></i>
-                    <h4>{cab.label}</h4>
-                    <span className="price">{cab.price}</span>
-                  </label>
-                ))}
-              </div>
+                <div className="cab-type-selector">
+                  {cabTypes.map((cab, index) => (
+                    <ScrollReveal key={cab.value} animation="fade-up" delay={index * 80}>
+                      <label
+                        className={`cab-type-card ${formData.cabType === cab.value ? 'selected' : ''}`}
+                      >
+                        <input
+                          type="radio"
+                          name="cabType"
+                          value={cab.value}
+                          checked={formData.cabType === cab.value}
+                          onChange={handleChange}
+                        />
+                        <i className={`fas ${cab.icon}`}></i>
+                        <h4>{cab.label}</h4>
+                        <span className="price">{cab.price}</span>
+                      </label>
+                    </ScrollReveal>
+                  ))}
+                </div>
 
               <form onSubmit={handleSubmit} className="booking-form">
               <div className="form-row">
@@ -359,27 +372,30 @@ const BookNow = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <>
-                    <i className="fas fa-spinner fa-spin"></i> Processing...
-                  </>
-                ) : (
-                  <>
-                    <i className="fas fa-paper-plane"></i> Book Now
-                  </>
-                )}
-              </button>
+                <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <i className="fas fa-spinner fa-spin"></i> Processing...
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-paper-plane"></i> Book Now
+                    </>
+                  )}
+                </button>
               </form>
-            </div>
+              </div>
+            </ScrollReveal>
           )}
         </div>
 
-        <div className="back-home">
-          <Link to="/">
-            <i className="fas fa-arrow-left"></i> Back to Home
-          </Link>
-        </div>
+        <ScrollReveal animation="fade-up" delay={40}>
+          <div className="back-home">
+            <Link to="/">
+              <i className="fas fa-arrow-left"></i> Back to Home
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </div>
   );

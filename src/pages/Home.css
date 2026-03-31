@@ -52,6 +52,8 @@ footer {
 .hero-copy {
   position: relative;
   z-index: 1;
+  transition: transform 0.45s ease-out;
+  will-change: transform;
 }
 
 .hero-kicker,
@@ -174,6 +176,8 @@ footer {
 .hero-visual-card {
   position: relative;
   min-height: 620px;
+  transition: transform 0.45s ease-out;
+  will-change: transform;
 }
 
 .hero-image-frame {
@@ -183,6 +187,8 @@ footer {
   border-radius: 34px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow-premium);
+  transition: transform 0.45s ease-out;
+  will-change: transform;
 }
 
 .hero-image-frame::before {
@@ -209,6 +215,8 @@ footer {
   background: rgba(18, 14, 13, 0.82);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-soft);
+  transition: transform 0.45s ease-out;
+  will-change: transform;
 }
 
 .hero-floating-note span {
@@ -312,6 +320,22 @@ footer {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
+}
+
+.service-grid > .scroll-reveal,
+.destination-grid > .scroll-reveal,
+.features-grid > .scroll-reveal,
+.testimonial-grid > .scroll-reveal,
+.contact-details > .scroll-reveal,
+.hero-metrics > .scroll-reveal {
+  height: 100%;
+}
+
+.service-grid > .scroll-reveal .service-card,
+.features-grid > .scroll-reveal .feature,
+.testimonial-grid > .scroll-reveal .testimonial-card,
+.contact-details > .scroll-reveal .contact-item {
+  height: 100%;
 }
 
 .service-card,
@@ -423,6 +447,7 @@ footer {
   overflow: hidden;
   min-height: 460px;
   border-radius: 30px;
+  display: block;
   transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
 }
 

@@ -8,6 +8,14 @@
   margin: 0 auto;
 }
 
+.tour-hero > .scroll-reveal {
+  height: 100%;
+}
+
+.tour-hero-overlay {
+  height: 100%;
+}
+
 .tour-hero {
   position: relative;
   min-height: 72vh;
@@ -108,6 +116,16 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+}
+
+.destination-cards > .scroll-reveal,
+.package-grid > .scroll-reveal {
+  height: 100%;
+}
+
+.destination-cards > .scroll-reveal .dest-card,
+.package-grid > .scroll-reveal .package-card {
+  height: 100%;
 }
 
 .dest-card,

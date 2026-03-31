@@ -60,6 +60,11 @@
   gap: 18px;
 }
 
+.booking-aside > .scroll-reveal,
+.cab-type-selector > .scroll-reveal {
+  height: 100%;
+}
+
 .booking-aside-card,
 .booking-panel,
 .success-message,
@@ -173,6 +178,7 @@
   background: rgba(255, 255, 255, 0.03);
   cursor: pointer;
   transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+  height: 100%;
 }
 
 .cab-type-card input[type="radio"] {
